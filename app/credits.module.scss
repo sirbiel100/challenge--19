@@ -1,0 +1,133 @@
+
+.creditSection {
+    position: absolute;
+    bottom: 3em;
+    right: 3em;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    overflow:hidden;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.158);
+    background-image: linear-gradient(to left, rgba(0, 119, 255, 0.753), rgba(255, 154, 21, 0.616));
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &::after {
+        content: 'G C';
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+    &::before {
+        content: 'G C';
+        color: rgb(0, 0, 0);
+        filter: blur(5px);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    .Loading {
+        position: absolute;
+        width: 4em;
+        height: 4em;
+        border: 2px solid white;
+        border-top: 2px solid red;
+        animation: infiniteBorder 5s infinite linear;
+        border-radius: 50%;
+        transition-delay: 1s;
+    }
+
+    .creditDiv{
+        opacity: 0;
+        margin-left: .8em;
+        transform: translateX(-30em);
+
+        p {
+            color: #000;
+            cursor: default;
+
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+
+    &:hover {
+        height: 5em;
+        width: 30em;
+        border-radius: 15px;
+        border: 1px solid black;
+
+
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        .Loading {
+            display: none;
+        }
+
+        .creditDiv {
+            transform: translateX(0);
+            opacity: 1;
+            transition: all .5s  ease-in-out;
+        }
+
+    }
+}
+
+
+@keyframes infiniteBorder {
+
+    0%{transform: rotate(0);}
+
+    100%{transform: rotate(360deg);} 
+    
+}
+
+@media (max-width: 600px) {
+
+    .creditSection {
+        position: static;
+        bottom: 0;
+        right: 50%;
+        width: 25em;
+        border-radius: 15px;
+        
+        .creditDiv {
+            display: flex;
+            font-size: 14px;
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        &:hover {
+            width: 25em;
+            height: 4em;
+            border: none;
+        }
+    }
+
+    .Loading {
+        display: none;
+    }
+    
+}

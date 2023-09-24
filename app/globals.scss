@@ -1,0 +1,20 @@
+@import './var.scss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+html,
+body {
+  max-width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: $White;
+}

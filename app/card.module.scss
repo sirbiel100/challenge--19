@@ -1,0 +1,201 @@
+@import "./var.scss";
+
+.cardSection {
+    position: relative;
+    background-image: url("../public/mobile-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+    height: 30svh;
+    width: 100%;
+    color: #fff;
+
+    header {
+        // Card back
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-42%) translateY(-31%);
+        background-image: url("../public/card-back.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        max-width: 14em;
+        width: 100%;
+        max-height: 7.7em;
+        height: 100%;
+        overflow: hidden;
+        p {
+            position: relative;
+            left: 75%;
+            top: 43.5%;
+            font-size: clamp(0.6rem, 1vw, 0.9rem);
+        }
+    }
+
+    main {
+        // Card Front
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-60%) translateY(25%);
+        background-image: url("../public/card-front.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        max-width: 14em;
+        width: 100%;
+        max-height: 7.7em;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.3em 0;
+        align-items: center;
+        gap: 0.8em;
+        border-radius: 5px;
+        box-shadow: 0 15px 30px 5px #0000001f;
+        overflow: hidden;
+
+        div {
+            &:nth-of-type(1) {
+                // Great white cirlce
+                position: absolute;
+                left: 7%;
+                top: 5%;
+                background-color: $White;
+                width: 1.3em;
+                height: 1.3em;
+                border-radius: 50%;
+            }
+
+            &:nth-of-type(2) {
+                // Small white circle
+                border: 1px solid $White;
+                position: absolute;
+                left: 20%;
+                top: 8%;
+                width: 0.7em;
+                height: 0.7em;
+                border-radius: 50%;
+            }
+
+            &:nth-of-type(3) {
+                // Name and expiration date
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.6rem;
+                width: 78%;
+            }
+        }
+    }
+}
+
+@media (min-width: 48.06em) {
+    //Tablet large size and laptop
+    .cardSection {
+        background-image: url("../public/desktop-bg.png");
+        height: 100vh;
+        height: 100svh;
+        max-width: 40%;
+        font-size: clamp(16px, 2vw, 18px);
+
+        header {
+            // Card back
+            left: 82%;
+            top: 60%;
+            background-size: cover;
+            max-width: 17em;
+            max-height: 9em;
+            box-shadow: 10px 20px 30px 5px #00000013;
+            border-radius: 10px;
+            animation: BCfloating 8s linear infinite forwards;
+            @keyframes BCfloating {
+                0%{transform: translateX(-42%) translateY(-31%);}
+                25%{transform: translateX(-42%) translateY(-36%);}
+                50%{transform: translateX(-42%) translateY(-31%);}
+                75%{transform: translateX(-42%) translateY(-25%);}
+                100%{transform: translateX(-42%) translateY(-31%);}
+            }
+            
+        }
+
+        main {
+            // Card Front
+            align-items: flex-start;
+            top: 22%;
+            left: 82%;
+            background-size: cover;
+            max-width: 17em;
+            max-height: 9em;
+            padding: 0 0 1.5em 1.5em;
+            gap: 0.7em;
+            box-shadow: 20px 20px 30px 5px #00000013;
+            animation: FCfloating 8s linear infinite forwards;
+            @keyframes FCfloating {
+                0%{transform: translateX(-60%) translateY(25%)}
+                25%{transform: translateX(-60%) translateY(30%)}
+                50%{transform: translateX(-60%) translateY(25%)}
+                75%{transform: translateX(-60%) translateY(20%)}
+                100%{transform: translateX(-60%) translateY(25%)}
+            }
+
+            span {
+                letter-spacing: clamp(0em, 0.25vw, 0.25em);
+            }
+
+            div {
+                &:nth-of-type(1) {
+                    // Great white cirlce
+                    left: 7%;
+                    top: 10%;
+                    width: 2em;
+                    height: 2em;
+                }
+
+                &:nth-of-type(2) {
+                    // Small white circle
+                    left: 23%;
+                    top: 16.5%;
+                    width: 1em;
+                    height: 1em;
+                }
+
+                &:nth-of-type(3) {
+                    // Name and expiration date
+                    font-size: 0.8rem;
+                    width: 95%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 80.1em) {
+    //Larger monitors and desktop
+    .cardSection {
+        header {
+            // Card back
+            left: 95%;
+            top: 65%;
+            max-width: 20em;
+            max-height: 11em;
+            
+        }
+
+        main {
+            // Card Front
+            top: 25%;
+            left: 90%;
+            max-width: 20em;
+            max-height: 11em;
+            
+
+            div {
+                &:nth-of-type(2) {
+                    // Small white circle
+                    left: 20%;
+                    top: 15%;
+                }
+            }
+        }
+    }
+}
